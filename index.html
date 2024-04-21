@@ -41,32 +41,32 @@
                   </form>
               </li>
             </ul>
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">Cadastrar Planta</button>
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalCriar">Cadastrar Planta</button>
           </div>
         </div>
       </nav>
       <div class="container-plantas">
         <div class="row justify-content-md-center">
-            <img class="pacote col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/d/d2/Peashooter_Newer_Seed_Packet.png" alt="">
-            <img class="pacote col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/0/09/Sunflower_Newer_Seed_Packet.png" alt="">
-            <img class="pacote col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/d/d2/Peashooter_Newer_Seed_Packet.png" alt="">
-            <img class="pacote col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/0/09/Sunflower_Newer_Seed_Packet.png" alt="">
-            <img class="pacote col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/d/d2/Peashooter_Newer_Seed_Packet.png" alt="">
-            <img class="pacote col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/0/09/Sunflower_Newer_Seed_Packet.png" alt="">
-            <img class="pacote col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/d/d2/Peashooter_Newer_Seed_Packet.png" alt="">
-            <img class="pacote col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/0/09/Sunflower_Newer_Seed_Packet.png" alt="">
-            <img class="pacote col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/d/d2/Peashooter_Newer_Seed_Packet.png" alt="">
-            <img class="pacote col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/0/09/Sunflower_Newer_Seed_Packet.png" alt="">
-            <img class="pacote col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/0/09/Sunflower_Newer_Seed_Packet.png" alt="">
-            <img class="pacote col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/0/09/Sunflower_Newer_Seed_Packet.png" alt="">
+            <img class="pacote col-xxl-1 col-md-2 col-4" data-bs-toggle="modal" data-bs-target="#modalDetalhes" src="https://plantsvszombies.wiki.gg/images/d/d2/Peashooter_Newer_Seed_Packet.png" alt="">
+            <img class="pacote col-xxl-1 col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/0/09/Sunflower_Newer_Seed_Packet.png" alt="">
+            <img class="pacote col-xxl-1 col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/d/db/Wall-nut_Newer_Seed_Packet.png" alt="">
+            <img class="pacote col-xxl-1 col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/5/57/Potato_Mine_Newer_Seed_Packet.png" alt="">
+            <img class="pacote col-xxl-1 col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/5/56/Cabbage-pult_Newer_Seed_Packet.png" alt="">
+            <img class="pacote col-xxl-1 col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/a/a7/Bloomerang_Newer_Seed_Packet.png" alt="">
+            <img class="pacote col-xxl-1 col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/1/18/Iceberg_Lettuce_Newer_Seed_Packet.png" alt="">
+            <img class="pacote col-xxl-1 col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/9/90/Grave_Buster_Newer_Seed_Packet.png" alt="">
+            <img class="pacote col-xxl-1 col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/1/10/Bonk_Choy_Newer_Seed_Packet.png" alt="">
+            <img class="pacote col-xxl-1 col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/8/80/Repeater_Newer_Seed_Packet.png" alt="">
+            <img class="pacote col-xxl-1 col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/4/4d/Twin_Sunflower_Newer_Seed_Packet.png" alt="">
+            <img class="pacote col-xxl-1 col-md-2 col-4" src="https://plantsvszombies.wiki.gg/images/2/2e/Kernel-pult_Newer_Seed_Packet.png" alt="">
         </div>
       </div>
-      <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <!-- Modal Criar-->
+    <div class="modal fade" id="modalCriar" tabindex="-1" aria-labelledby="modalCriar" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Planta</h1>
+            <h1 class="modal-title fs-5" id="modalCriar">Cadastrar Planta</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -149,6 +149,66 @@
         </div>
         </div>
     </div>
+
+  <!-- Modal Detalhes-->
+  <div class="modal fade" id="modalDetalhes" tabindex="-1" aria-labelledby="modalDetalhes" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Detalhes da Planta</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="card mb-3">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="https://plantsvszombies.wiki.gg/images/d/d2/Peashooter_Newer_Seed_Packet.png" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">Disparervilha</h5>
+                  <div class="row">
+                    <div class="col-6">
+                      <p class="atributo"><small class="text-body-secondary">Custo de Sol</small></p>
+                      <p class="">100</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="atributo"><small class="text-body-secondary">Recarga</small></p>
+                      <p class="">5s</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="atributo"><small class="text-body-secondary">Resistência</small></p>
+                      <p class="">300</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="atributo"><small class="text-body-secondary">Dano</small></p>
+                      <p class="">20</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="atributo"><small class="text-body-secondary">Alcance</small></p>
+                      <p class="">Linha Reta</p>
+                    </div>
+                    <div class="col-6">
+                      <p class="atributo"><small class="text-body-secondary">Familia</small></p>
+                      <p class="">Dispara-menta</p>
+                    </div>
+                    <div class="col-12">
+                      <p class="atributo"><small class="text-body-secondary">Descrição</small></p>
+                      <p class="">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vel, architecto. Aut voluptate deserunt quas magnam voluptates porro perspiciatis eveniet aliquam corrupti ea facilis animi, molestias repellat eos saepe maxime quos.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Editar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/4286abea40.js" crossorigin="anonymous"></script>
