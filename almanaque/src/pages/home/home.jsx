@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Pacote from "../../componentes/pacotes/pacotes";
 import InfoModal from "../../componentes/modals/infoModal";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 function Home(){
 
     const [plantas, setPlantas] = useState([]);
@@ -22,13 +24,15 @@ function Home(){
         ListarPlantas();
     }, []);
     return <>
-    <div>
+    <Row>
         {
             plantas.map(function(planta){
-                return <Pacote imagem={planta.imagem} onClick={() =>handleOpenModal(planta)}/>
+                return <>
+                <Pacote imagem={planta.imagem} onClick={() =>handleOpenModal(planta)}/>
+                </>
             })
         }
-    </div>
+    </Row>
     {selectedPlanta != null ? (<InfoModal isOpen={openInfoModal} onClose={() => setOpenInfoModal(false)} planta={selectedPlanta}/>)
     :(null)}
     </>

@@ -6,11 +6,11 @@ import Col from 'react-bootstrap/Col';
 
 
 function CadastroForm(props){
-    const [prod, setProd] = useState(false);
-
+    const [prod, setProd] = useState(props.formState.produtor);
     const handleCheckboxChange = () => {
         setProd(!prod);
       };
+
     return (
     <Form>
         <Row>

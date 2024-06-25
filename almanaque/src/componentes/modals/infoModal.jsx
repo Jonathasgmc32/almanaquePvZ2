@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
@@ -7,21 +7,83 @@ import Col from 'react-bootstrap/Col';
 import CadastroForm from '../forms/cadastro';
 function InfoModal({isOpen, onClose, planta}){
   const [edit, setEdit] = useState(false);
+  const fecharModal = () => {
+    setEdit(false);
+    onClose();
+  };
+
+  const [estadoPlanta, setEstadoPlanta] = useState({
+    nome: '',
+    custo: '',
+    resistencia: '',
+    dano: '',
+    recarga: '',
+    alcance:'',
+    produtor: false,
+    tipoProdutor:'',
+    familia:'',
+    mundo:'',
+    descricao:'',
+    imagem:''
+  });
+
+  useEffect(() => {
+    setEstadoPlanta(planta);
+}, [planta]);
+
+const [errors, setErrors] = useState({});
+const handleChange = (e) => {
+  const { name, value, type, checked } = e.target;
+  setEstadoPlanta((prevEstadoPlanta) => ({
+      ...prevEstadoPlanta,
+      [name]: type == 'checkbox' ? checked : value
+  }));
+};
+  function handleSubmit() {
+    const newErrors = validateForm(estadoPlanta);
+    if (Object.keys(newErrors).length === 0) {
+      console.log(estadoPlanta);
+      fetch("http://localhost:3001/plantas/" + planta.id_planta, {
+        method: "PUT",
+        body: JSON.stringify(estadoPlanta),
+        headers: {
+          "Content-type": "application/json"
+        }
+      })
+        .then(function(response){
+        })
+        .catch(error =>{
+          console.log(error);
+        });
+    } else {
+      console.log(newErrors)
+      setErrors(newErrors);
+    }
+    setEdit(false);
+  }
+
+  function validateForm(state) {
+    const errors = {};
+    if (!state.nome) errors.nome = 'Nome é obrigatório';
+    if (!state.dano) errors.dano = 'Dano é obrigatório';
+    setErrors(errors);
+    return errors;
+  }
 return (
 <>
     <Modal
         size="lg"
         show={isOpen}
-        onHide={onClose}
+        onHide={fecharModal}
         aria-labelledby="example-modal-sizes-title-lg"
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">
-            Detalhes da Planta
+            Detalhes da Planta {planta.id_planta}
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {edit?(<CadastroForm/>):(<Card>
+          {edit?(<CadastroForm formState={estadoPlanta} onChange={handleChange}/>):(<Card>
                 <Row>
                     <Col md={4}>
                         <img src={planta.imagem} alt="..."></img>
@@ -72,12 +134,21 @@ return (
             </Card>)}
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="danger" onClick={onClose}>
+          {edit?(<>
+            <Button variant="secondary" onClick={() => setEdit(false)}>
+            Descartar alterações
+          </Button>
+          <Button variant="success" onClick={handleSubmit}>
+            Salvar alterações
+          </Button>
+          </>):(<>
+            <Button variant="danger" onClick={fecharModal}>
             Fechar
           </Button>
           <Button variant="primary" onClick={() => setEdit(true)}>
             Editar
           </Button>
+          </>)}
         </Modal.Footer>
       </Modal>
       </>

@@ -15,7 +15,7 @@ function CadastroModal({isOpen, onClose}){
     dano: '',
     recarga: '',
     alcance:'',
-    produtor:'',
+    produtor: false,
     tipoProdutor:'',
     familia:'',
     mundo:'',
