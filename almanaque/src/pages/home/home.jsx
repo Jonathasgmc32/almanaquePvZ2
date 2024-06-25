@@ -1,11 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Pacote from "../../componentes/pacotes/pacotes";
 import InfoModal from "../../componentes/modals/infoModal";
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import { PlantasContext } from "../../contextos/plantasContex";
+
 function Home(){
 
-    const [plantas, setPlantas] = useState([]);
+    const { plantas, fetchPlantas } = useContext(PlantasContext);
     const [openInfoModal, setOpenInfoModal] = useState(false);
     const [selectedPlanta, setSelectedPlanta] = useState(null);
 
@@ -14,14 +15,8 @@ function Home(){
         setOpenInfoModal(true);
     };
 
-    function ListarPlantas(){
-        fetch("http://localhost:3001/plantas")
-        .then(function(response){
-            response.json().then(json =>{setPlantas(json)});
-        })
-    }
     useEffect(function(){
-        ListarPlantas();
+        fetchPlantas();
     }, []);
     return <>
     <Row>

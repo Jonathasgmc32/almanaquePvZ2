@@ -1,11 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import CadastroForm from '../forms/cadastro';
+import { PlantasContext } from '../../contextos/plantasContex';
+
 function InfoModal({isOpen, onClose, planta}){
+  const { fetchPlantas } = useContext(PlantasContext);
   const [edit, setEdit] = useState(false);
   const fecharModal = () => {
     setEdit(false);
@@ -52,6 +55,9 @@ const handleChange = (e) => {
       })
         .then(function(response){
         })
+        .then(data => {
+          fetchPlantas();
+        })
         .catch(error =>{
           console.log(error);
         });
@@ -79,7 +85,7 @@ return (
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-modal-sizes-title-lg">
-            Detalhes da Planta {planta.id_planta}
+            Detalhes da Planta
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>

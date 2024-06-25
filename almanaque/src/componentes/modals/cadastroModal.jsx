@@ -1,13 +1,12 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import Modal from 'react-bootstrap/Modal';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import CadastroForm from '../forms/cadastro';
 import Alert from 'react-bootstrap/Alert';
+import { PlantasContext } from '../../contextos/plantasContex';
 
 function CadastroModal({isOpen, onClose}){
+  const { fetchPlantas } = useContext(PlantasContext);
   const [formState, setFormState] = useState({
     nome: '',
     custo: '',
@@ -40,8 +39,11 @@ function CadastroModal({isOpen, onClose}){
           "Content-type": "application/json"
         }
       })
-        .then(function(response){
-        })
+      .then(response => response.json())
+      .then(data => {
+        fetchPlantas();  // Atualiza a lista de plantas
+        onClose();  // Fecha o modal após o cadastro
+      })
         .catch(error =>{
           console.log(error);
         });
