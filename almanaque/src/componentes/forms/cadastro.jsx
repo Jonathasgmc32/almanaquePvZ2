@@ -1,5 +1,4 @@
 import {useState} from "react";
-import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -38,11 +37,15 @@ function CadastroForm(props){
             <Form.Label>Alcance</Form.Label>
             <Form.Select defaultValue="Escolher" name="alcance" value={props.formState.alcance} onChange={props.onChange}>
             <option value="Escolher"></option>
+            <option>Nenhum</option>
             <option>Linha reta</option>
             <option>Parábola</option>
             <option>Área</option>
-            <option>Alvo único</option>
+            <option>Quadrado</option>
             <option>Tela toda</option>
+            <option>Corpo a Corpo</option>
+            <option>Alvo único</option>
+            <option>Multiplos Acertos</option>
             </Form.Select>
             </Col>
         </Row>
@@ -57,7 +60,8 @@ function CadastroForm(props){
                 <>
                 <option>Nenhum</option>
                 <option>Baixa</option>
-                <option>Média</option>
+                <option>Normal</option>
+                <option>Dupla</option>
                 <option>Alta</option>
                 <option>Muito Alta</option>
                 <option>Variável</option></>) : (<option>Nenhum</option>)}
@@ -68,10 +72,18 @@ function CadastroForm(props){
             <Form.Select defaultValue="Escolher" name="familia" value={props.formState.familia} onChange={props.onChange}>
             <option value="Escolher"></option>
             <option>Endureci-menta</option>
+            <option>Bombardea-menta</option>
             <option>Fila-menta</option>
             <option>Arma-menta</option>
             <option>Dispara-menta</option>
             <option>Envenena-menta</option>
+            <option>Perfura-menta</option>
+            <option>Surra-menta</option>
+            <option>Sombrea-menta</option>
+            <option>Refrea-menta</option>
+            <option>Resfria-menta</option>
+            <option>Aqueci-menta</option>
+            <option>Esclareci-menta</option>
             </Form.Select>
             </Col>
         </Row>
@@ -85,6 +97,13 @@ function CadastroForm(props){
             <option>Velho Oeste</option>
             <option>Futuro Distante</option>
             <option>Idade das Trevas</option>
+            <option>Praia da Boa Onda</option>
+            <option>Cavernas da Geladura</option>
+            <option>Cidade Perdida</option>
+            <option>Turnê Idade da Juba</option>
+            <option>Pântano Jurássico</option>
+            <option>Tempos Modernos</option>
+            <option>Premium</option>
             </Form.Select>
             </Col>
         </Row>
